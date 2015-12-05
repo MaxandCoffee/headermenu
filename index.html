@@ -1,0 +1,329 @@
+
+<!doctype html>
+
+<html lang="en">
+<title>Shrinking Header and Pop Menu</title>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+<script>
+//shrinking header function
+$(window).scroll(function() {
+if ($(this).scrollTop() > 0){  
+    $("header").addClass("sticky");
+	 $(".h1").addClass("sticky");
+	 $(".menuWrapper").addClass("sticky");
+      $("#boxOne").hide(1000);
+      $("#boxTwo").hide(1000);
+      $("#boxThree").hide(1000);
+      $("#boxFour").hide(1000);
+      $("#button").show(1000)
+  }
+  else{
+    $("header").removeClass("sticky");
+	 $(".h1").removeClass("sticky");
+	 $(".menuWrapper").removeClass("sticky");
+     $("#boxNav").fadeOut(500);
+	 $("#boxOne").slideDown(1000);
+     $("#boxTwo").slideDown(1000);
+     $("#boxThree").slideDown(1000);
+     $("#boxFour").slideDown(1000);
+     $("#button").fadeOut(1500)
+  }
+});
+
+        
+//dropdown menu fuction
+$(document).ready(function() {
+    $("#drop").click(function(){
+        $("#dropNav").toggle(500);
+    });
+});
+
+//scroll to top function aka "home"
+$(document).ready(function(){
+$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});	
+});
+	
+//show menu function
+$(document).ready(function(){
+    $("#button").click(function(){
+        $("#boxNav").slideToggle(1000);
+    });
+});
+</script>
+    
+<style>
+body{
+    margin: 0 15% 0 15%;
+    background-color: #f1f1f1; 
+}
+
+.content{
+    width: 100%;
+}
+
+
+header{
+	position: fixed;
+	width: 70%;
+	height: 200px;
+    background-color: #f1f1f1;
+	transition: all 1s ease;
+    z-index: +1;
+    border-bottom: 1px solid #656565
+}
+
+header.sticky{
+	width: 71%;
+	height: 100px;
+	background: #f1f1f1;
+	text-align: left;
+    transition: all 1s ease;
+    border-bottom: 1px solid #656565
+}
+
+.h1{
+    color: #004040;
+    text-align: left;
+    font-family: serif;
+    font-style: normal;
+    font-size: 46px;
+    background-color: #f1f1f1;
+    padding: 20px 20px 0 20px;
+    transition: all 1s ease;
+}
+
+header .h1.sticky {
+    color: #004040;
+    text-align: left;
+    font-family: 'Arapey', serif;
+    font-style: normal;
+    font-size: 24px;
+    background-color: #f1f1f1;
+    padding: 20px 20px 0 20px;
+    transition: all 1.5s ease;
+}
+
+
+.menuWrapper{
+    float: right;
+    padding-top: 40px;
+    margin-right: 50px;
+    background-color: #f1f1f1;
+    transition: all 1s ease;
+}
+
+header .menuWrapper.sticky{
+    float: right;
+    padding-top: 40px;
+    margin-right: 50px;
+    background-color: #f1f1f1; 
+}
+
+.menuWrapper div{
+    display: inline;
+    padding: 20px 20px 0 10px;
+    color: #000;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.menuWrapper a:hover{
+    color: #F55E61;
+}
+
+#drop{
+    cursor: pointer;
+}
+
+#dropNav{
+    position: fixed;
+    display: none;
+    cursor: pointer;
+    height: auto;
+    background-color: #f1f1f1;
+    -webkit-box-shadow: 7px 7px 5px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 7px 5px -3px rgba(0,0,0,0.75);
+    box-shadow: 7px 7px 5px -3px rgba(0,0,0,0.75);
+}
+
+#dropNav li {
+    list-style: none;
+    margin-left: 8px;
+    margin-right: 8px;
+    font-family: 'Quicksand', sans-serif;
+    padding: 2px;
+}
+
+#button{
+    display: none;
+    position: fixed;
+    cursor: pointer;
+    background-color: #000;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 0;
+    margin-left: -100px;
+    margin-top: 100px;
+    color: #fff;
+    z-index: +1;
+    -webkit-box-shadow: 3px 0px 9px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 0px 9px -1px rgba(0,0,0,0.75);
+    box-shadow: 3px 0px 9px -1px rgba(0,0,0,0.75);
+}
+
+#button:active{
+    outline: none;
+    background-color: #005757;
+    -webkit-box-shadow: 0px 0px 0px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 0px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 0px -1px rgba(0,0,0,0.75);
+}
+
+#button:focus{
+    outline: none;
+}
+ 
+#boxNav{
+    position: fixed;
+    display: none;
+    cursor: pointer;
+    height: auto;
+    margin-left: -100px;
+    margin-top: 60px;
+    color:#000;
+}
+
+#boxNav li{
+    list-style: none;
+    display: none;
+}
+
+#boxWrapper{
+    padding-top: 150px;
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+
+#boxOne{
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    margin: 100px 20px 10px 10px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#boxTwo{
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    margin: 100px 20px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#boxThree{
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    margin: 100px 20px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#boxFour{
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    margin: 100px 20px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+ .home{
+    display: block;
+    height: 75px;
+    cursor: pointer;
+}
+
+.boxOne{
+    display: block;
+    height: 75px;
+    cursor: pointer;
+}
+
+.boxTwo{
+    display: block;
+    height: 75px;
+    cursor: pointer;
+}
+
+.boxThree{
+    display: block;
+    height: 75px;
+    cursor: pointer;
+}
+
+.boxFour{
+    display: block;
+    height: 75px;
+    cursor: pointer;
+}
+
+.fill{
+    height: 900px;
+}
+</style>
+</head>
+
+<body>
+<div class="content">
+	<header>
+        <div class="menuWrapper">
+            <ul>
+                <div id="drop"><a href="#">External Link 1</a></div>
+                    <ul id="dropNav">
+                        <li><a href="#" target="_blank">External Link Hompage</a></li>
+                        <li><a href="#" target="_blank">Option 1</a></li>
+                        <li><a href="#" target="_blank">Option 2</a></li>
+                        <li><a href="#" target="_blank">Option 3</a></li>
+                    </ul>
+                <div><a href="#" target="_blank">Link 2</a></div>
+                <div><a href="#" target="_blank">Link 3</a></div>
+            </ul>
+        </div>
+					
+        <div class="h1"><a href="#" class="scrollToTop">Example <br />Website <br /> Header</a></div>
+		
+		<!--this the menu that drops down from the popup button. the menu items can be styled all the same by removing the numbers in the class name.-->
+        <div id="boxNav">
+            <a href="#" class="scrollToTop home">Home</a>
+            <a href="#"><div class="boxOne">About</div></a>
+            <a href="#"><div class="boxTwo">FAQ</div></a>
+            <a href="#"><div class="boxThree">Contact</div></a>
+            <a href="#"<div class="boxFour">Blog</div></a>
+         </div>
+    </header>
+            
+    <button id="button">Menu</button>
+	<!--this is the menu that is hidden on scroll. the menu items can be styled all the same by removing the numbers in the class name.-->
+    <div id="boxWrapper">
+        <a href="#"><div id="boxOne">About</div></a>
+        <a href="#"><div id="boxTwo">FAQ</div></a>
+		<a href="#"><div id="boxThree">Contact</div></a>
+		<a href="#"><div id="boxFour">Blog</div></a>
+	</div>
+                
+    <div class="fill"></div>
+</div>    
+</body>
